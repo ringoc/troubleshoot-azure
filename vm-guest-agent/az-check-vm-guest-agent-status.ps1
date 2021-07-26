@@ -28,7 +28,7 @@ $resultsAll = @(foreach ($subId in $subIds) {
         $agent = $vmInstanceView | Select -ExpandProperty VMAgent | Select VMAgentVersion
         $status = $vmInstanceView | Select -ExpandProperty Statuses|  Select-Object -Last 1 # last status object indicate vm status
         
-        Write-Host "Found VM: $vm.Name"
+        Write-Host "Found VM: " $vm.Name
 
         # construct the custom object
         [PSCustomObject]@{
