@@ -5,7 +5,8 @@ This powershell script can print out information in related to guest agent insta
 ### Usage
 `./az-check-vm-guest-agent-status.ps1 -subscriptionId "<sub-id>" -path "./report.cvs" -resourceGroup "<rg>" -vmName "<vm>"`
 ### Output 
-```Remove item at ./report.csv ...
+```
+Remove item at ./report.csv ...
 Checking on subscription: <sub-name>
 Found VM:  <vm>
 ```
