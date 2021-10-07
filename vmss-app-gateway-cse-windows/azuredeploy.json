@@ -280,7 +280,7 @@
                   "typeHandlerVersion": "1.10",
                   "autoUpgradeMinorVersion": true,
                   "settings": {
-                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-dotnet35.ps1 -dotnetInstallDir [parameters('dotnetInstallDir')];powershell -ExecutionPolicy Unrestricted -File install-iis.ps1",
+                    "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File install-dotnet35.ps1 -dotnetInstallDir', parameters('dotnetInstallDir'))]",
                     "fileUris": [
                       "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-dotnet35.ps1",
                       "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-iis.ps1"
