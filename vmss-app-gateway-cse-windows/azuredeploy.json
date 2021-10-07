@@ -266,18 +266,6 @@
           "extensionProfile": {
             "extensions": [
               {
-                "name": "install-iis",
-                "properties": {
-                  "publisher": "Microsoft.Compute",
-                  "type": "CustomScriptExtension",
-                  "typeHandlerVersion": "1.10",
-                  "autoUpgradeMinorVersion": true,
-                  "settings": {
-                    "commandToExecute": "powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"
-                  }
-                }
-              },
-              {
                 "name": "install-dotnet",
                 "properties": {
                   "publisher": "Microsoft.Compute",
@@ -285,8 +273,11 @@
                   "typeHandlerVersion": "1.10",
                   "autoUpgradeMinorVersion": true,
                   "settings": {
-                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File dotnet-install.ps1 -dotnetInstallDir \"C:\\1\"",
-                    "fileUris": "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-dotnet.ps1"
+                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-dotnet35.ps1 -dotnetInstallDir \"C:\\1\";powershell -ExecutionPolicy Unrestricted -File install-iis.ps1",
+                    "fileUris": [
+                      "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-dotnet35.ps1",
+                      "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-iis.ps1"
+                    ]
                   }
                 }
               }
