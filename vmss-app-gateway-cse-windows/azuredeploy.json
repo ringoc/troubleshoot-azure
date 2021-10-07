@@ -276,6 +276,19 @@
                     "commandToExecute": "powershell Add-WindowsFeature Web-Server; powershell Add-Content -Path \"C:\\inetpub\\wwwroot\\Default.htm\" -Value $($env:computername)"
                   }
                 }
+              },
+              {
+                "name": "install-dotnet",
+                "properties": {
+                  "publisher": "Microsoft.Compute",
+                  "type": "CustomScriptExtension",
+                  "typeHandlerVersion": "1.10",
+                  "autoUpgradeMinorVersion": true,
+                  "settings": {
+                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File dotnet-install.ps1 -dotnetInstallDir \"C:\\1\"",
+                    "fileUris": "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-dotnet.ps1"
+                  }
+                }
               }
             ]
           }
