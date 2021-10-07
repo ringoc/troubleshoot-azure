@@ -2,6 +2,13 @@
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+    "dotnetInstallDir": {
+      "type": "string",
+      "defaultValue": "C:\\dotnet",
+      "metadata": {
+        "description": "Install Directory of VM scaleset."
+      }
+    },
     "vmSku": {
       "type": "string",
       "defaultValue": "Standard_B2s",
@@ -273,7 +280,7 @@
                   "typeHandlerVersion": "1.10",
                   "autoUpgradeMinorVersion": true,
                   "settings": {
-                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-dotnet35.ps1 -dotnetInstallDir \"C:\\1\";powershell -ExecutionPolicy Unrestricted -File install-iis.ps1",
+                    "commandToExecute": "powershell -ExecutionPolicy Unrestricted -File install-dotnet35.ps1 -dotnetInstallDir [parameters('dotnetInstallDir')];powershell -ExecutionPolicy Unrestricted -File install-iis.ps1",
                     "fileUris": [
                       "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-dotnet35.ps1",
                       "https://raw.githubusercontent.com/ringoc/troubleshoot-azure/main/vmss-app-gateway-cse-windows/install-iis.ps1"
